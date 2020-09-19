@@ -5,7 +5,7 @@ python:
   - "3.8"
 before-install:
   - pip install poetry
-  - poetry config settings.virtualenvs.in-project true
+  - poetry config virtualenvs.in-project true
 install:
   - poetry install -vv
 script: pytest
