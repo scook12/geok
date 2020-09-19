@@ -1,4 +1,4 @@
-language: python
+language: generic
 python:
   # - "3.6" # TODO: builds for 3.6
   - "3.7"
