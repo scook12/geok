@@ -2,8 +2,6 @@ language: python
 services:
   - docker
 before-install:
-  - docker build -t geok .
-  - docker run --name geok-test geok
-  - docker exec -dit geok-test /bin/bash
+  - docker pull cooksamuel/geok_test:3.7
 install: pip --version
-script: docker exec -it geok-test poetry run pytest
+script: docker run cooksamuel/geok_test:3.7 /bin/sh -c "poetry run pytest"
