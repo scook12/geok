@@ -1,12 +1,6 @@
-language: generic
-python:
-  # - "3.6" # TODO: builds for 3.6
-  - "3.7"
-  - "3.8"
+language: python
+services:
+  - docker
 before-install:
-  - pip install poetry
-  - poetry config virtualenvs.in-project true
-  - poetry shell
-install:
-  - poetry install -vv
-script: pytest
+  - docker build -t geok .
+script: docker exec -it geok poetry run pytest
