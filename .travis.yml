@@ -3,4 +3,5 @@ services:
   - docker
 before-install:
   - docker build -t geok .
+install: pip --version
 script: docker exec -it geok poetry run pytest
