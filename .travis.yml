@@ -6,6 +6,7 @@ python:
 before-install:
   - pip install poetry
   - poetry config virtualenvs.in-project true
+  - poetry env use python
 install:
   - poetry install -vv
 script: pytest
