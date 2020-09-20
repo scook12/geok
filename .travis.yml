@@ -4,4 +4,6 @@ services:
 before-install:
   - docker pull cooksamuel/geok_test:3.7
 install: pip --version
-script: docker run cooksamuel/geok_test:3.7 /bin/sh -c "poetry run pytest"
+script: docker run cooksamuel/geok_test:3.7 /bin/sh -c "poetry run coverage run -m pytest"
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
