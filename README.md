@@ -1,4 +1,5 @@
-# geok [![Build Status](https://travis-ci.com/scook12/geok.svg?branch=main)](https://travis-ci.com/scook12/geok)
+[![Build Status](https://travis-ci.com/scook12/geok.svg?branch=main)](https://travis-ci.com/scook12/geok)
+# geok
 pydantic validation for Esri geometries.
 
 ## About
