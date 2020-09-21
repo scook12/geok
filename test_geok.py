@@ -202,10 +202,6 @@ def test_abstract_model(abstract_model, configured_model):
     assert all([k in cd.keys() for k in list(d.keys())])
 
 
-def test_aliased_json():
-    pass
-
-
 def test_uid_field():
     # TODO: test dict, json representations of uid_field
     bad_sys = {"name": "FID", "is_system_maintained": "fals?"}
@@ -275,12 +271,7 @@ def test_field():
 
 
 def test_features(feature, fields):
-    feat_model = geok.core.FeaturesModel(
-        **{
-            "features": [feature],
-            "fields": fields,
-        }
-    )
+    feat_model = geok.core.FeaturesModel(**{"features": [feature], "fields": fields,})
     req_attrs = [
         "object_id_fieldname",
         "global_id_fieldname",
@@ -303,49 +294,54 @@ def test_features(feature, fields):
     assert fset.features is not None
 
 
-def test_server():
-    pass
+# TODO: all tests below
+# def test_aliased_json():
+#     pass
 
 
-def test_rest_info():
-    pass
+# def test_server():
+#     pass
 
 
-def test_layer():
-    pass
+# def test_rest_info():
+#     pass
 
 
-def test_esri_version():
-    pass
+# def test_layer():
+#     pass
 
 
-def test_stats():
-    pass
+# def test_esri_version():
+#     pass
 
 
-def test_point():
-    pass
+# def test_stats():
+#     pass
 
 
-def test_multipoint():
-    pass
+# def test_point():
+#     pass
 
 
-def test_polyline():
-    pass
+# def test_multipoint():
+#     pass
 
 
-def test_polygon():
-    pass
+# def test_polyline():
+#     pass
 
 
-def test_multipolygon():
-    pass
+# def test_polygon():
+#     pass
 
 
-def test_sr():
-    pass
+# def test_multipolygon():
+#     pass
 
 
-def test_publishing():
-    pass
+# def test_sr():
+#     pass
+
+
+# def test_publishing():
+#     pass
