@@ -4,7 +4,6 @@ import json
 import pydantic
 from enum import Enum
 from typing import Union, List
-from geok._types import PolygonType
 
 
 class AbstractModel(pydantic.BaseModel):
@@ -188,7 +187,7 @@ class PolylineModel(AbstractModel):
 
 class PolygonModel(AbstractModel):
     coordinates = Union[
-        List[Union[int, float, geok._types.PolygonType]], arcgis.geometry.Polygon
+        List[Union[int, float]], arcgis.geometry.Polygon
     ]
 
 
