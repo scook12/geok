@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "geok"
-version = "0.1.0"
+version = "0.2.0-alpha.0"
 description = "pydantic validation for Esri geometries."
 authors = ["Samuel Cook <scook@esri.com>"]
 license = "MIT"

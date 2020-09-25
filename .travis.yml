@@ -10,7 +10,6 @@ install: pip --version
 script: docker exec $ID poetry run pytest --cov-report=xml --cov=geok tests/
 after_success:
   - docker exec $ID bash codecov.sh -v -f coverage.xml -t $CODECOV_TOKEN
-  - docker kill $ID
 deploy:
   provider: script
   script: bash deploy.sh
