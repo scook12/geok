@@ -1,5 +1,5 @@
 # geok
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)[![Build Status](https://travis-ci.com/scook12/geok.svg?branch=main)](https://travis-ci.com/scook12/geok) [![codecov](https://codecov.io/gh/scook12/geok/branch/main/graph/badge.svg)](https://codecov.io/gh/scook12/geok)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) | [![Build Status](https://travis-ci.com/scook12/geok.svg?branch=main)](https://travis-ci.com/scook12/geok) | [![codecov](https://codecov.io/gh/scook12/geok/branch/main/graph/badge.svg)](https://codecov.io/gh/scook12/geok)
 
 pydantic validation for Esri geometries.
 

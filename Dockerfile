@@ -7,6 +7,7 @@ WORKDIR /usr/src/lib
 
 COPY . .
 RUN apt-get update
-RUN apt-get install -y curl
+RUN apt-get install -y curl git
 RUN pip install poetry
+RUN poetry config virtualenvs.create false
 RUN poetry install
