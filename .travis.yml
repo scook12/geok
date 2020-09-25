@@ -6,4 +6,4 @@ before-install:
 install: pip --version
 script: docker run cooksamuel/geok_test:latest /bin/sh -c "poetry run pytest --cov-report=xml --cov=geok tests/"
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -v || echo "codecov failed to upload"
