@@ -3,11 +3,11 @@ services:
   - docker
 before-install:
   - docker build -t test_build .
-  - ID=$(docker run -dit test_build /bin/sh)
+  - ID=$(docker run -dit test_build /bin/bash)
 install: pip --version
 script: docker exec $ID poetry run pytest --cov-report=xml --cov=geok tests/
 after_success:
-  - docker exec $ID "curl -s https://codecov.io/bash | bash -v -f ./coverage.xml  || echo 'codecov failed to upload'"
+  - docker exec $ID "curl -s https://codecov.io/bash) -v -f coverage.xml -t $CODECOV_TOKEN | bash"
   - docker kill $ID
 deploy:
   provider: script
