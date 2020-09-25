@@ -2,8 +2,13 @@ language: python
 services:
   - docker
 before-install:
-  - docker pull cooksamuel/geok_test:latest
+  - docker build -t test_build .
+  - ID=$(docker run -dit test_build /bin/sh)
 install: pip --version
-script: docker run cooksamuel/geok_test:latest /bin/sh -c "poetry run pytest --cov-report=xml --cov=geok tests/"
+script: docker exec $ID poetry run pytest --cov-report=xml --cov=geok tests/
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -v -f ./coverage.xml || echo "codecov failed to upload"
+  - docker exec $ID bash <(curl -s https://codecov.io/bash) -v -f ./coverage.xml -t $CODECOV_TOKEN || echo "codecov failed to upload"
+  - docker kill $ID
+deploy:
+  provider: script
+  script: bash deploy.sh
