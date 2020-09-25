@@ -2,12 +2,12 @@ language: python
 services:
   - docker
 before-install:
-  - docker build -t test_build .
-  - ID=$(docker run -dit test_build /bin/bash)
+  - docker build -t cooksamuel/geok_test:$TRAVIS_JOB_ID -t cooksamuel/geok_test:latest .
+  - ID=$(docker run -dit cooksamuel/geok_test:latest /bin/bash)
 install: pip --version
 script: docker exec $ID poetry run pytest --cov-report=xml --cov=geok tests/
 after_success:
-  - docker exec bash codecov.sh -v -f coverage.xml
+  - docker exec $ID bash codecov.sh -v -f coverage.xml
   - docker kill $ID
 deploy:
   provider: script
