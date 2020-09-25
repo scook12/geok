@@ -15,5 +15,5 @@ deploy:
   provider: script
   script: bash deploy.sh
   on:
-    repo: cooksamuel/geok
+    repo: scook12/geok
     branch: build
