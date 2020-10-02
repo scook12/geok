@@ -297,6 +297,7 @@ def test_features(feature, fields):
 def test_point():
     sr = geok.core.SpatialReferenceModel()
     model = geok.core.PointModel(x=32.1, y=32.1, spatial_reference=sr)
+    # typing and attributes
     assert isinstance(model, geok.core.PointModel)
     assert hasattr(model, 'x')
     assert hasattr(model, 'y')
@@ -305,7 +306,19 @@ def test_point():
     assert model.y == 32.1
     assert isinstance(model.spatial_reference, geok.core.SpatialReferenceModel)
     assert hasattr(model.spatial_reference, 'wkid')
-    assert model.spatial_reference.wkid == 4326 
+    assert model.spatial_reference.wkid == 4326
+    # interoperability with arcgis Point/Feature
+    pt = arcgis.geometry.Point(model)
+    assert hasattr(pt, 'x')
+    assert hasattr(pt, 'y')
+    assert hasattr(pt, 'spatial_reference')
+    assert pt.is_valid
+    feat = arcgis.features.Feature(pt)
+    assert isinstance(feat, arcgis.features.Feature)
+    assert feat.fields is not None
+    d = feat.as_dict
+    assert isinstance(d, dict)
+    assert d['geometry'] == model.dict()
 
 # TODO: all tests below
 # def test_aliased_json():
