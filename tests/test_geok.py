@@ -294,6 +294,19 @@ def test_features(feature, fields):
     assert fset.features is not None
 
 
+def test_point():
+    sr = geok.core.SpatialReferenceModel()
+    model = geok.core.PointModel(x=32.1, y=32.1, spatial_reference=sr)
+    assert isinstance(model, geok.core.PointModel)
+    assert hasattr(model, 'x')
+    assert hasattr(model, 'y')
+    assert hasattr(model, 'spatial_reference')
+    assert model.x == 32.1
+    assert model.y == 32.1
+    assert isinstance(model.spatial_reference, geok.core.SpatialReferenceModel)
+    assert hasattr(model.spatial_reference, 'wkid')
+    assert model.spatial_reference.wkid == 4326 
+
 # TODO: all tests below
 # def test_aliased_json():
 #     pass

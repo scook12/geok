@@ -169,8 +169,8 @@ class FeaturesModel(AbstractModel):
 
 
 class PointModel(AbstractModel):
-    x: Union[int, float]
-    y: Union[int, float]
+    x: Union[float, int]
+    y: Union[float, int]
     spatial_reference: SpatialReferenceModel
 
 
